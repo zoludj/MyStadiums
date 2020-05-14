@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020 Vladislavs Kozlovs
+  ~ This code is licensed under MIT license
+  ~ (see LICENSE.txt for details)
+  -->
+
+<jboss-web>
+
+    <context-root>/stadiums</context-root>
+    <security-domain>jaspitest</security-domain>
+
+</jboss-web>

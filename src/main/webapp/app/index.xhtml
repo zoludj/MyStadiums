@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+    <ui:define name="content">
+        <h:dataTable value="#{stadiumsBean.stadiums}" var="stadium">
+
+            <h:column>
+                <f:facet name="header">id</f:facet>
+                #{stadium.id}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">name</f:facet>
+                #{stadium.name}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">capacity</f:facet>
+                #{stadium.capacity}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">sponsor</f:facet>
+                #{stadium.sponsor}
+            </h:column>
+        </h:dataTable>
+
+
+    </ui:define>
+</ui:composition>
+
+</html>
