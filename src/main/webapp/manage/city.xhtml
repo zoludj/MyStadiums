@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/main.xhtml">
+
+    <f:metadata>
+
+        <f:viewParam name="id" value="#{cityBean.id}"/>
+        <f:viewAction action="#{cityBean.find}"/>
+
+    </f:metadata>
+    <ui:define name="content">
+
+        <h:form>
+            <p>
+                <h:outputLabel value="id"/>
+                <h:inputText readonly="true" value="#{cityBean.city.id}"/>
+            </p>
+            <p>
+                <h:outputLabel value="City_name"/>
+                <h:inputText value="#{cityBean.city.city_name}"/>
+            </p>
+            <p>
+                <h:outputLabel value="Overview"/>
+                <h:inputTextarea value="#{cityBean.city.overview}"/>
+            </p>
+            <p>
+                <h:commandButton value="Save" action="#{cityBean.save}"/>
+
+
+            </p>
+        </h:form>
+
+
+    </ui:define>
+</ui:composition>
+
+</html>

@@ -2,7 +2,7 @@ package my.stadiums.life.stadium.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
+
 
 @Entity(name ="Stadium")
 @Table (name ="stadiums")

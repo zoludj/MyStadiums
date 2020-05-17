@@ -1,8 +1,3 @@
-<!--
-  ~ Copyright (c) 2020 Dimitrijs Fedotovs
-  ~ This code is licensed under MIT license
-  ~ (see LICENSE.txt for details)
-  -->
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -16,6 +11,7 @@
             <ui:fragment rendered="#{request.isUserInRole('MANAGER')}">
                 <li><h:link value="Manager space" outcome="/manage/index.xhtml"/></li>
                 <li><h:link value="Manage cities" outcome="/manage/cities.xhtml"/></li>
+
             </ui:fragment>
             <ui:fragment rendered="#{request.isUserInRole('ADMIN')}">
                 <li><h:link value="Admin space" outcome="/admin/index.xhtml"/></li>

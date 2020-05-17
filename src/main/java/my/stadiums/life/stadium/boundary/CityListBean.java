@@ -3,8 +3,6 @@ package my.stadiums.life.stadium.boundary;
 
 import my.stadiums.life.stadium.control.CityDAO;
 import my.stadiums.life.stadium.model.CityEntity;
-import my.stadiums.life.stadium.model.StadiumEntity;
-
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
