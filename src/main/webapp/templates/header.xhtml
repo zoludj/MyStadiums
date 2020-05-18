@@ -6,11 +6,14 @@
     <h:form>
         <ul>
             <ui:fragment rendered="#{request.isUserInRole('USER')}">
-                <li><h:link value="User space" outcome="/app/index.xhtml"/></li>
+                <li><h:link value="All Stadiums" outcome="/app/index.xhtml"/></li>
+
             </ui:fragment>
             <ui:fragment rendered="#{request.isUserInRole('MANAGER')}">
                 <li><h:link value="Manager space" outcome="/manage/index.xhtml"/></li>
                 <li><h:link value="Manage cities" outcome="/manage/cities.xhtml"/></li>
+                <li><h:link value="Manage Countries" outcome="/manage/countries.xhtml"/></li>
+
 
             </ui:fragment>
             <ui:fragment rendered="#{request.isUserInRole('ADMIN')}">

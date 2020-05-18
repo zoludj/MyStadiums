@@ -5,10 +5,9 @@ import my.stadiums.life.stadium.model.CityEntity;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Stateless @Transactional
+@Stateless
 public class CityDAO {
     @PersistenceContext
     private EntityManager em;

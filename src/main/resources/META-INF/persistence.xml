@@ -8,7 +8,7 @@
     <persistence-unit name="Stadiums" transaction-type="JTA">
         <jta-data-source>java:jboss/datasources/Stadiums</jta-data-source>
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="javax.persistence.sql-load-script-source" value="META-INF/data.sql" />
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.charset_name" value="UTF-8" />
