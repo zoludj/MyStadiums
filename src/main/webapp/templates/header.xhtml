@@ -6,7 +6,8 @@
     <h:form>
         <ul>
             <ui:fragment rendered="#{request.isUserInRole('USER')}">
-                <li><h:link value="All Stadiums" outcome="/app/index.xhtml"/></li>
+                <li><h:link value="Welcome" outcome="/app/index.xhtml"/></li>
+                <li><h:link value="Stadiums" outcome="/app/stadium.xhtml"/></li>
 
             </ui:fragment>
             <ui:fragment rendered="#{request.isUserInRole('MANAGER')}">

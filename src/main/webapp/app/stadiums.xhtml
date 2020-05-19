@@ -7,9 +7,13 @@
 
 <ui:composition template="/templates/main.xhtml">
     <ui:define name="content">
-
-        <h:graphicImage
-                value="https://pngimage.net/wp-content/uploads/2018/06/stadium-logo-png-8.png"/>
+       <h:dataTable value="#{stadiumListsBean.stadiums}" var="s"/>
+        <h:column>
+            <f:facet name="header">id</f:facet>
+            <h:outputLink value="stadium.xhtml"/>
+            <f:param name="id" value="#{s.id}"/>
+            #{s.id}
+        </h:column>
 
     </ui:define>
 </ui:composition>

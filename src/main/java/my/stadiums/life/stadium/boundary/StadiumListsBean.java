@@ -12,7 +12,7 @@ import java.util.List;
 
 @Named
 @ViewScoped
-public class StadiumsBean implements Serializable {
+public class StadiumListsBean implements Serializable {
     @PersistenceContext
     private EntityManager em;
     private List<StadiumEntity> stadiums;
