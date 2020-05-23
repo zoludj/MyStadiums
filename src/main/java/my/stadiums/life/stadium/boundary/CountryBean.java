@@ -24,6 +24,25 @@ public class CountryBean implements Serializable {
         }
     }
 
+    public void save() {
+        if (country.getId() == null) {
+            countryDAO.create(country);
+
+        } else {
+            country = countryDAO.update(country);
+
+        }
+
+    }
+    public String delete() {
+        if(country.getId()==null){
+            return null;
+        }
+        countryDAO.delete(country);
+        return "/manage/countries.xhtml?faces-redirect=true";
+
+    }
+
     public long getId() {
         return id;
     }
@@ -35,4 +54,8 @@ public class CountryBean implements Serializable {
     public CountryEntity getCountry() {
         return country;
     }
+
+
 }
+
+

@@ -23,9 +23,10 @@
                 <h:inputText value="#{countryBean.country.country_name}"/>
             </p>
             <p>
-                <h:outputLabel value="City"/>
-                <h:inputText value="#{cityBean.city.city_name}"/>
+            <h:commandButton value="Save" action="#{countryBean.save}" style="color: #ff2a36"/>
+            <h:commandButton value="Delete" action="#{countryBean.delete}" style="navbutton_background_color: #dd172e" />
             </p>
+
 
         </h:form>
 

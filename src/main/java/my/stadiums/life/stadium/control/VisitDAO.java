@@ -1,6 +1,6 @@
 package my.stadiums.life.stadium.control;
 
-import my.stadiums.life.stadium.model.VisitsEntity;
+import my.stadiums.life.stadium.model.VisitEntity;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -12,12 +12,12 @@ public class VisitDAO {
     @PersistenceContext
     private EntityManager em;
 
-    private List<VisitsEntity>getAllVisits () {
-        return em.createQuery("select v from Visits v", VisitsEntity.class)
+    public List<VisitEntity>getAllVisits () {
+        return em.createQuery("select v from Visits v", VisitEntity.class)
                 .getResultList();
     }
-    private VisitsEntity getVisitsById (long id){
-        return em.find(VisitsEntity.class,id);
+    public VisitEntity getVisitsById (long id){
+        return em.find(VisitEntity.class,id);
     }
 
 }

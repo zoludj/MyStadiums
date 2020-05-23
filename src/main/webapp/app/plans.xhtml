@@ -9,12 +9,12 @@
     <ui:define name="content">
 
 
-       <h:dataTable value="#{stadiumListsBean.stadiums}" var="s"/>
+       <h:dataTable value="#{planListBean.plans}" var="p"/>
         <h:column>
             <f:facet name="header">id</f:facet>
-            <h:outputLink value="stadium.xhtml"/>
-            <f:param name="id" value="#{s.id}"/>
-            #{s.id}
+            <h:outputLink value="plan.xhtml"/>
+            <f:param name="id" value="#{p.id}"/>
+            #{p.id}
         </h:column>
 
     </ui:define>
