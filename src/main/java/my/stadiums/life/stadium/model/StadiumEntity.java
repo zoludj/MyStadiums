@@ -3,6 +3,8 @@ package my.stadiums.life.stadium.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -12,16 +14,18 @@ public class StadiumEntity implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column (name = "name", length = 50, nullable = false)
+    @Column(name = "name", length = 50, nullable = false)
     private String name;
-    @Column (name = "capacity", length = 50, nullable = false)
+    @Column(name = "capacity", length = 50, nullable = false)
     private int capacity;
-    @Column (name = "sponsor", length = 100, nullable = false)
+    @Column(name = "sponsor", length = 100, nullable = false)
     private String sponsor;
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "city_id", nullable = false)
+    @JoinColumn(name = "city_id", nullable = false)
     private CityEntity city;
+    @OneToMany (mappedBy = "stadium")
+    private List<VoteEntity> votes = new ArrayList<>();
 
     public CityEntity getCity() {
         return city;
@@ -30,6 +34,7 @@ public class StadiumEntity implements Serializable {
     public void setCity(CityEntity city) {
         this.city = city;
     }
+
 
     public Long getId() {
         return id;
@@ -63,31 +68,11 @@ public class StadiumEntity implements Serializable {
         this.sponsor = sponsor;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        StadiumEntity that = (StadiumEntity) o;
-        return capacity == that.capacity &&
-                Objects.equals(id, that.id) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(sponsor, that.sponsor) &&
-                Objects.equals(city, that.city);
+    public List<VoteEntity> getVotes() {
+        return votes;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, capacity, sponsor, city);
-    }
-
-    @Override
-    public String toString() {
-        return "StadiumEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", capacity=" + capacity +
-                ", sponsor='" + sponsor + '\'' +
-                ", city=" + city +
-                '}';
+    public void setVotes(List<VoteEntity> votes) {
+        this.votes = votes;
     }
 }

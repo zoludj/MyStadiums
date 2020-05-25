@@ -24,9 +24,8 @@
             </p>
             <p>
             <h:commandButton value="Save" action="#{countryBean.save}" style="color: #ff2a36"/>
-            <h:commandButton value="Delete" action="#{countryBean.delete}" style="navbutton_background_color: #dd172e" />
+            <h:commandButton value="Delete" action="#{countryBean.delete}" style="navbutton_background_color: #dd172e" rendered="#{not empty countryBean.country.id}" />
             </p>
-
 
         </h:form>
 

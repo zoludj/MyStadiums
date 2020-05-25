@@ -1,0 +1,69 @@
+package my.stadiums.life.stadium.boundary;
+
+import my.stadiums.life.auth.model.UserEntity;
+import my.stadiums.life.stadium.control.VoteDAO;
+import my.stadiums.life.stadium.model.StadiumEntity;
+import my.stadiums.life.stadium.model.VoteEntity;
+
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.io.Serializable;
+
+@Named
+@ViewScoped
+public class VoteBean implements Serializable {
+    @Inject
+    private VoteDAO voteDAO;
+
+    private VoteEntity vote;
+    private UserEntity user;
+    private StadiumEntity stadium;
+    long id;
+
+    public void find() {
+        if (id == 0){
+            vote = new VoteEntity();
+        }else{
+            vote = voteDAO.getVoteById(id);
+        }
+
+    }
+
+    public void save() {
+        if (vote.getId() == null) {
+            voteDAO.create(vote);
+        } else {
+            vote = voteDAO.update(vote);
+        }
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public VoteEntity getVote() {
+        return vote;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public StadiumEntity getStadium() {
+        return stadium;
+    }
+
+    public void setStadium(StadiumEntity stadium) {
+        this.stadium = stadium;
+    }
+}

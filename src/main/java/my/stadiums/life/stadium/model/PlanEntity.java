@@ -1,6 +1,8 @@
 package my.stadiums.life.stadium.model;
 
+import javax.inject.Named;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -15,6 +17,9 @@ public class PlanEntity implements Serializable {
     private LocalDate planed_date;
     @Column(name = "Description")
     private String description;
+    @Column (name = "Stadium_name", nullable = false)
+    private String Stadium_name;
+
 
     public Long getId() {
         return id;
@@ -40,6 +45,14 @@ public class PlanEntity implements Serializable {
         this.description = description;
     }
 
+    public String getStadium_name() {
+        return Stadium_name;
+    }
+
+    public void setStadium_name(String stadium_name) {
+        Stadium_name = stadium_name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,4 +76,5 @@ public class PlanEntity implements Serializable {
                 ", description='" + description + '\'' +
                 '}';
     }
+
 }
