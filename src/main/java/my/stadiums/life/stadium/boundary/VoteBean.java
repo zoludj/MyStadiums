@@ -19,7 +19,7 @@ public class VoteBean implements Serializable {
     private VoteEntity vote;
     private UserEntity user;
     private StadiumEntity stadium;
-    long id;
+    private long id;
 
     public void find() {
         if (id == 0){

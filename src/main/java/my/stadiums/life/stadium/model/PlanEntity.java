@@ -60,12 +60,13 @@ public class PlanEntity implements Serializable {
         PlanEntity that = (PlanEntity) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(planed_date, that.planed_date) &&
-                Objects.equals(description, that.description);
+                Objects.equals(description, that.description) &&
+                Objects.equals(Stadium_name, that.Stadium_name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, planed_date, description);
+        return Objects.hash(id, planed_date, description, Stadium_name);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class PlanEntity implements Serializable {
                 "id=" + id +
                 ", planed_date=" + planed_date +
                 ", description='" + description + '\'' +
+                ", Stadium_name='" + Stadium_name + '\'' +
                 '}';
     }
-
 }

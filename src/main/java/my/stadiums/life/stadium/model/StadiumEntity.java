@@ -20,12 +20,22 @@ public class StadiumEntity implements Serializable {
     private int capacity;
     @Column(name = "sponsor", length = 100, nullable = false)
     private String sponsor;
+   @Column(name = "comments")
+    private String comment;
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id", nullable = false)
     private CityEntity city;
     @OneToMany (mappedBy = "stadium")
     private List<VoteEntity> votes = new ArrayList<>();
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
     public CityEntity getCity() {
         return city;

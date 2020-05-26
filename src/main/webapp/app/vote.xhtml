@@ -29,6 +29,10 @@ xmlns:p="http://primefaces.org/ui">
                 <p:inputText readonly="true"  value="#{voteBean.vote.stadium.id}"/>
             </p>
             <p>
+                <p:outputLabel value="plan_id"/>
+                <p:inputText readonly="true"  value="#{voteBean.vote.plan.id}"/>
+            </p>
+            <p>
            <p:commandButton value="VOTE" action="#{voteBean.save}"/>
             </p>
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/templates/main.xhtml">
+
+    <f:metadata>
+
+        <f:viewParam name="id" value="#{commentBean.id}"/>
+        <f:viewAction action="#{commentBean.find}"/>
+
+    </f:metadata>
+    <ui:define name="content">
+
+        <h:form>
+            <p>
+                <h:outputLabel value="id"/>
+                <h:inputText readonly="true" value="#{commentBean.comment.id}"/>
+            </p>
+            <p>
+                <h:outputLabel value="user_id"/>
+                <h:inputText readonly="true" value="#{commentBean.comment.user.id}"/>
+            </p>
+            <p>
+                <h:outputLabel value="stadium_id"/>
+                <h:inputText readonly="true" value="#{commentBean.comment.stadium.id}"/>
+            </p>
+
+
+            <p>
+                <h:outputLabel value="Your Comment"/>
+                <h:inputTextarea  value="#{commentBean.comment.id}"/>
+            </p>
+            <p>
+                <h:commandButton value="Save" action="#{commentBean.save}"/>
+            </p>
+        </h:form>
+
+
+    </ui:define>
+</ui:composition>
+
+</html>

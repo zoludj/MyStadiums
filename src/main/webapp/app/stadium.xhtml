@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/main.xhtml">
 
     <f:metadata>
@@ -17,10 +18,10 @@
 
         <h:dataTable value="#{stadiumListsBean.stadiums}" var="s">
 
-        <h:column>
-            <f:facet name="header">id</f:facet>
-            #{s.id}
-        </h:column>
+            <h:column>
+                <f:facet name="header">id</f:facet>
+                #{s.id}
+            </h:column>
 
             <h:column>
                 <f:facet name="header">name</f:facet>
@@ -36,6 +37,16 @@
                 <f:facet name="header">sponsor</f:facet>
                 #{s.sponsor}
             </h:column>
+            <h:column>
+                <f:facet name="header">comments</f:facet>
+                <h:outputLink value="comment.xhtml">
+                    <f:param name="Write your comment" value="#{s.comment}"/>
+                    #{s.comment}
+                </h:outputLink>
+            </h:column>
+
+
+
         </h:dataTable>
     </ui:define>
 </ui:composition>

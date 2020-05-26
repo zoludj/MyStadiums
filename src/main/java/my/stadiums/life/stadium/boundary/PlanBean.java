@@ -14,7 +14,7 @@ public class PlanBean implements Serializable {
     @Inject
     private PlanDAO planDAO;
     private PlanEntity plan;
-    long id;
+   private long id;
 
     public void find() {
         if (id == 0) {
