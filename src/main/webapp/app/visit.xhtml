@@ -21,7 +21,7 @@ xmlns:p="http://primefaces.org/ui">
             <h:column>
                 <f:facet name="header">TV</f:facet>
                 <h:outputLink value="http://bit.ly/toStadim">
-                    <i class="fab fa-youtube"><p:commandButton value="Watch"/> </i>
+                    <i class="fab fa-youtube"> <h:commandButton value="Watch"/> </i>
                 </h:outputLink>
             </h:column>
 
@@ -35,6 +35,7 @@ xmlns:p="http://primefaces.org/ui">
                 #{v.visits_date}
             </h:column>
             <h:column>
+
                 <f:facet name="header">my_impression</f:facet>
                 #{v.my_impression}
             </h:column>

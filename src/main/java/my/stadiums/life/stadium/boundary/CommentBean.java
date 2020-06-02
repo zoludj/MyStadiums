@@ -16,8 +16,10 @@ public class CommentBean implements Serializable {
     private CommentDAO commentDAO;
     private CommentsEntity comment;
     private long id;
+    private String value;
 
     public void save(){
+        comment = new CommentsEntity();
         if(comment.getId()==null){
             commentDAO.create(comment);
         }else{
@@ -43,5 +45,13 @@ public class CommentBean implements Serializable {
 
     public CommentsEntity getComment() {
         return comment;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

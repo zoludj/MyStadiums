@@ -39,15 +39,20 @@
             </h:column>
             <h:column>
                 <f:facet name="header">comments</f:facet>
+
                 <h:outputLink value="comment.xhtml">
-                    <f:param name="Write your comment" value="#{s.comment}"/>
-                    #{s.comment}
+                <h:commandButton value="Send comment" action="#{commentBean.save}"/>
                 </h:outputLink>
             </h:column>
-
-
-
         </h:dataTable>
+
+
+        <p:contentFlow value="#{imagesView.images}" var="image">
+            <p:graphicImage name="demo/images/nature/#{image}" styleClass="content" />
+            <div class="caption">#{image}</div>
+        </p:contentFlow>
+
     </ui:define>
 </ui:composition>
+
 </html>

@@ -2,9 +2,11 @@ package my.stadiums.life.stadium.boundary;
 
 import my.stadiums.life.auth.model.UserEntity;
 import my.stadiums.life.stadium.control.VoteDAO;
+import my.stadiums.life.stadium.model.PlanEntity;
 import my.stadiums.life.stadium.model.StadiumEntity;
 import my.stadiums.life.stadium.model.VoteEntity;
 
+import javax.enterprise.deploy.model.XpathListener;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -27,16 +29,25 @@ public class VoteBean implements Serializable {
         }else{
             vote = voteDAO.getVoteById(id);
         }
-
     }
-
     public void save() {
+        UserEntity user = new UserEntity();
+        user.setId(-1L);
+        vote.setUser(user);
+
+        StadiumEntity stadium = new StadiumEntity();
+        stadium.setId(-1L);
+        vote.setStadium(stadium);
+
+        PlanEntity plan = new PlanEntity();
+        plan.setId(-1L);
+        vote.setPlan(plan);
+
         if (vote.getId() == null) {
             voteDAO.create(vote);
         } else {
             vote = voteDAO.update(vote);
         }
-
     }
 
     public long getId() {
