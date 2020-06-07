@@ -24,7 +24,7 @@
             </h:column>
 
             <h:column>
-                <f:facet name="header">name</f:facet>
+                <f:facet  name="header">name</f:facet>
                 #{s.name}
             </h:column>
 
@@ -45,13 +45,7 @@
                 </h:outputLink>
             </h:column>
         </h:dataTable>
-
-
-        <p:contentFlow value="#{imagesView.images}" var="image">
-            <p:graphicImage name="demo/images/nature/#{image}" styleClass="content" />
-            <div class="caption">#{image}</div>
-        </p:contentFlow>
-
+    <h:graphicImage value="https://www.wiki.sc4devotion.com/images/b/bc/Seoul_World_Cup_Stadium.png" width="200" height="200" style="animation: backwards" />
     </ui:define>
 </ui:composition>
 
