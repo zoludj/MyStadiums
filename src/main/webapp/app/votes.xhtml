@@ -30,7 +30,7 @@
 <!--                <h:inputText value="#{currentUser.user.id}"/>-->
 <!--            </p>-->
             <p>
-            <h:commandButton value="Vote" action="#{voteBean.save(FacesContext., currentUser.user.loginName)}" style="color: #5aff2c"/>
+            <h:commandButton value="Vote" action="#{voteBean.save(stadiumBean.stadium.id, currentUser.user.loginName)}" style="color: #5aff2c"/>
 <!--            <h:commandButton value="Delete" action="#{voteBean.delete}" style="navbutton_background_color: #dd172e" rendered="#{not empty countryBean.country.id}" />-->
             </p>
 
