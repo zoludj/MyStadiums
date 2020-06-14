@@ -40,7 +40,6 @@ public class CountryBean implements Serializable {
         }
         countryDAO.delete(country);
         return "/manage/countries.xhtml?faces-redirect=true";
-
     }
 
     public long getId() {

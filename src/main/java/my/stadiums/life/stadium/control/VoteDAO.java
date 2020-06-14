@@ -21,7 +21,8 @@ public class VoteDAO {
     public void create(VoteEntity vote) {
         em.persist(vote);
     }
-    public VoteEntity update (VoteEntity vote){
+
+    public VoteEntity update(VoteEntity vote) {
         var tmp = em.merge(vote);
         return tmp;
 
@@ -29,5 +30,10 @@ public class VoteDAO {
 
     public VoteEntity getVoteById(long id) {
         return em.find(VoteEntity.class, id);
+    }
+
+    public void delete(VoteEntity vote) {
+        var tmp = em.merge(vote);
+        em.remove(tmp);
     }
 }

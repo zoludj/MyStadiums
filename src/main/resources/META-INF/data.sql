@@ -1,6 +1,6 @@
-insert into users (id, login_name, password_hash, role_name) values (-1, 'user', 'PBKDF2WithHmacSHA256:2048:e9vXAAs/amAf2/PT/eVw2UbG6DcdtIZArf0FqMG8ClI=:UTOAQ8LsucZL3nua/RQj3VyDid3KhaSUFc5AaVI8T4A=', 'USER')
-insert into users (id, login_name, password_hash, role_name) values (-2, 'manager', 'PBKDF2WithHmacSHA256:2048:e9vXAAs/amAf2/PT/eVw2UbG6DcdtIZArf0FqMG8ClI=:UTOAQ8LsucZL3nua/RQj3VyDid3KhaSUFc5AaVI8T4A=', 'MANAGER')
-insert into users (id, login_name, password_hash, role_name) values (-3, 'admin', 'PBKDF2WithHmacSHA256:2048:e9vXAAs/amAf2/PT/eVw2UbG6DcdtIZArf0FqMG8ClI=:UTOAQ8LsucZL3nua/RQj3VyDid3KhaSUFc5AaVI8T4A=', 'ADMIN')
+insert into users (id, login_name, password_hash, role_name) values (-1, 'user', 'PBKDF2WithHmacSHA256:2048:e9vXAAs/amAf2/PT/eVw2UbG6DcdtIZArf0FqMG8ClI=:UTOAQ8LsucZL3nua/RQj3VyDid3KhaSUFc5AaVI8T4A=', 'USER');
+insert into users (id, login_name, password_hash, role_name) values (-2, 'manager', 'PBKDF2WithHmacSHA256:2048:e9vXAAs/amAf2/PT/eVw2UbG6DcdtIZArf0FqMG8ClI=:UTOAQ8LsucZL3nua/RQj3VyDid3KhaSUFc5AaVI8T4A=', 'MANAGER');
+insert into users (id, login_name, password_hash, role_name) values (-3, 'admin', 'PBKDF2WithHmacSHA256:2048:e9vXAAs/amAf2/PT/eVw2UbG6DcdtIZArf0FqMG8ClI=:UTOAQ8LsucZL3nua/RQj3VyDid3KhaSUFc5AaVI8T4A=', 'ADMIN');
 
 insert into stadiums (id, name, capacity,sponsor, city_id) values (-1, 'OpelArena', 29785, 'Comarch',-1);
 insert into stadiums (id, name, capacity,sponsor, city_id) values (-2, 'BayArena', 30125, 'Bayern', -2);
@@ -27,9 +27,9 @@ insert into cities (id, city_name, overview, country_id) values  ( -6,'Mancheste
 
 insert into comments (id,user_id, stadium_id, comment) values (-1, -1, -4, 'great');
 
-insert into plans (id, planed_date, description, stadium_name ) values (-1, to_date('05/09/2020', 'DD/MM/YYYY'), 'Cristiano in live VOTE for Alianz ->', 'Alianz Stadium');
-insert into plans (id, planed_date, description, stadium_name) values (-2, to_date('10/07/2020', 'DD/MM/YYYY'), 'New stadium of Atletico Madrid ->', 'Wanda Metropalitona');
-insert into plans (id, planed_date, description,stadium_name) values (-3, to_date('19/08/2020', 'DD/MM/YYYY'), 'Liverpool future champions VOTE ->', 'Enfield');
+insert into plans (id, planed_date, description, stadium_name ) values (-1, to_date('05/09/2020', 'DD/MM/YYYY'), 'Cristiano in live  for Alianz', 'Alianz Stadium');
+insert into plans (id, planed_date, description, stadium_name) values (-2, to_date('10/07/2020', 'DD/MM/YYYY'), 'New stadium of Atletico Madrid', 'Wanda Metropalitona');
+insert into plans (id, planed_date, description,stadium_name) values (-3, to_date('19/08/2020', 'DD/MM/YYYY'), 'Liverpool future champions VOTE', 'Enfield');
 
 
 insert into visits (id, title,visits_date,my_impression,stadium_id) values (-1, 'OpelArena', to_date('28/09/2019','DD/MM/YYYY'), 'first stadium, amazing atmosphere', -1);
@@ -40,4 +40,4 @@ insert into visits (id, title,visits_date,my_impression,stadium_id) values (-5, 
 insert into visits (id, title,visits_date,my_impression,stadium_id) values (-6, 'King Power', to_date('19/01/2020','DD/MM/YYYY'), 'Impossible is possible', -9);
 
 
-insert into votes (id,user_id,stadium_id, plan_id) values  (-1,-1, -10, -1);
+insert into votes (id,user_id,stadium_id) values  (-1,-1, -10);

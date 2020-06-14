@@ -9,14 +9,24 @@ import java.util.List;
 
 @Stateless
 public class StadiumDAO {
-@PersistenceContext
+    @PersistenceContext
     private EntityManager em;
 
- public List<StadiumEntity> getAllStadiums  (){
-     return em.createQuery("select s from Stadium  s", StadiumEntity.class)
-             .getResultList();
+    public List<StadiumEntity> getAllStadiums() {
+        return em.createQuery("select s from Stadium  s", StadiumEntity.class)
+                .getResultList();
     }
-    public StadiumEntity getStadiumById(long id){
-     return em.find(StadiumEntity.class, id);
+
+    public StadiumEntity getStadiumById(long id) {
+        return em.find(StadiumEntity.class, id);
+    }
+
+    public void create(StadiumEntity stadium) {
+        em.persist(stadium);
+    }
+
+    public StadiumEntity update(StadiumEntity stadium) {
+        var tmp  = em.merge(stadium);
+        return (tmp);
     }
 }

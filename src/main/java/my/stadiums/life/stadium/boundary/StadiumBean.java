@@ -16,11 +16,19 @@ public class StadiumBean implements Serializable {
     private StadiumEntity stadium;
     private long id;
 
-    public void find (){
-        if (id ==0){
+    public void find() {
+        if (id == 0) {
             stadium = new StadiumEntity();
-        }else {
+        } else {
             stadium = stadiumDAO.getStadiumById(id);
+        }
+    }
+
+    public void save() {
+        if (stadium.getId() == null) {
+            stadiumDAO.create(stadium);
+        }else {
+stadium = stadiumDAO.update (stadium);
         }
     }
 
