@@ -21,23 +21,18 @@
         <p:dataTable value="#{planListBean.plans}" var="p">
 
 
-<!--            <p:column>-->
-<!--                <f:facet name="header">id</f:facet>-->
-<!--                #{p.id}-->
-<!--            </p:column>-->
-
-            <p:column>
-                <f:facet name="header">Planed Date</f:facet>
-                #{p.planed_date}
+            <p:column style=" border-color: black">
+            <f:facet  name="header">Planed Date</f:facet>
+                <h4> #{p.planed_date} </h4>
             </p:column>
 
-            <p:column>
+            <p:column style="border-color: black">
                 <f:facet name="header">Description</f:facet>
-                #{p.description}
+                <h4> #{p.description} </h4>
             </p:column>
-            <p:column>
-                <f:facet name="header">Stadium</f:facet>
-                    #{p.stadium_name}
+           <p:column style=" border-color: black">
+                <f:facet name="header"> Stadium</f:facet>
+               <h4> #{p.stadium_name}</h4>
             </p:column>
 
         </p:dataTable>

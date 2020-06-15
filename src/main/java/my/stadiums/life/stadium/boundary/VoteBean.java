@@ -5,17 +5,14 @@ import my.stadiums.life.auth.control.UserDAO;
 import my.stadiums.life.auth.model.UserEntity;
 import my.stadiums.life.stadium.control.StadiumDAO;
 import my.stadiums.life.stadium.control.VoteDAO;
-import my.stadiums.life.stadium.model.PlanEntity;
 import my.stadiums.life.stadium.model.StadiumEntity;
 import my.stadiums.life.stadium.model.VoteEntity;
 
-import javax.enterprise.deploy.model.XpathListener;
-import javax.faces.context.FacesContext;
+
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Map;
 import java.util.Optional;
 
 @Named
