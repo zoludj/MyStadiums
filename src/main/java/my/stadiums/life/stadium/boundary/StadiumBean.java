@@ -27,8 +27,8 @@ public class StadiumBean implements Serializable {
     public void save() {
         if (stadium.getId() == null) {
             stadiumDAO.create(stadium);
-        }else {
-stadium = stadiumDAO.update (stadium);
+        } else {
+            stadium = stadiumDAO.update(stadium);
         }
     }
 

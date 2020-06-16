@@ -5,7 +5,6 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 
 @Entity(name ="Stadium")
@@ -24,8 +23,10 @@ public class StadiumEntity implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id", nullable = false)
     private CityEntity city;
-    @OneToMany (mappedBy = "stadium")
+    @OneToMany (mappedBy = "stadium", fetch = FetchType.EAGER)
     private List<VoteEntity> votes = new ArrayList<>();
+    @Column(name = "available_for_voting")
+    private Boolean availableForVoting;
 
 
     public CityEntity getCity() {
@@ -75,5 +76,13 @@ public class StadiumEntity implements Serializable {
 
     public void setVotes(List<VoteEntity> votes) {
         this.votes = votes;
+    }
+
+    public Boolean getAvailableForVoting() {
+        return availableForVoting;
+    }
+
+    public void setAvailableForVoting(Boolean availableForVoting) {
+        this.availableForVoting = availableForVoting;
     }
 }

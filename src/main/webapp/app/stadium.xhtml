@@ -41,8 +41,12 @@
                 <f:facet name="header">comments</f:facet>
 
                 <h:outputLink value="comment.xhtml">
-                <h:commandButton value="Send comment" action="#{commentBean.save}"/>
+                    <h:commandButton value="Send comment" action="#{commentBean.save}"/>
                 </h:outputLink>
+            </h:column>
+
+            <h:column rendered="#{currentUser.user.roleName == 'MANAGER' || currentUser.user.roleName == 'ADMIN'}">
+                <p:selectBooleanCheckbox value="#{s.availableForVoting}"/>
             </h:column>
         </h:dataTable>
         <h:graphicImage value="https://www.wiki.sc4devotion.com/images/b/bc/Seoul_World_Cup_Stadium.png" width="200"

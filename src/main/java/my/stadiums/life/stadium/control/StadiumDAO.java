@@ -17,6 +17,11 @@ public class StadiumDAO {
                 .getResultList();
     }
 
+    public List<StadiumEntity> getAvailableForVotingStadiums() {
+        return em.createQuery("select s from Stadium s where s.availableForVoting = true", StadiumEntity.class)
+                .getResultList();
+    }
+
     public StadiumEntity getStadiumById(long id) {
         return em.find(StadiumEntity.class, id);
     }

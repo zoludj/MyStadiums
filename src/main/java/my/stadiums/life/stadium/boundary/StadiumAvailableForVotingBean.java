@@ -7,24 +7,24 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.util.List;
 
+
 @Named
 @ViewScoped
-public class StadiumListsBean implements Serializable {
-
-    private List<StadiumEntity> stadiums;
+public class StadiumAvailableForVotingBean implements Serializable {
 
     @Inject
     private StadiumDAO stadiumDAO;
 
+    private List<StadiumEntity> stadiums;
+
+
 
     @PostConstruct
     public void goal() {
-        stadiums = stadiumDAO.getAllStadiums();
+        stadiums = stadiumDAO.getAvailableForVotingStadiums();
     }
 
     public List<StadiumEntity> getStadiums() {

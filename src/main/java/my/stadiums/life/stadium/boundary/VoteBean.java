@@ -37,11 +37,8 @@ public class VoteBean implements Serializable {
         }
     }
 
-    public void save(String stadiumId, String userName) {
-//        Map<String, String> params = FacesContext.getCurrentInstance().
-//                getExternalContext().getRequestParameterMap();
-//        String stadiumId = params.get("stadiumId");
-//        String userName = params.get("userName");
+    public String save(String stadiumId, String userName) {
+        vote = new VoteEntity();
         StadiumEntity stadium = stadiumDAO.getStadiumById(Long.parseLong(stadiumId));
         Optional<UserEntity> user = userDAO.findUser(userName);
         vote.setStadium(stadium);
@@ -51,6 +48,7 @@ public class VoteBean implements Serializable {
         } else {
             vote = voteDAO.update(vote);
         }
+        return "/app/vote.xhtml?faces-redirect=true";
     }
 
 

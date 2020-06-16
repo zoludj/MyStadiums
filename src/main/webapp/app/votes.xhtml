@@ -9,34 +9,14 @@
 <ui:composition template="/templates/main.xhtml">
 
 <f:metadata>
-    <f:viewParam name="id" value="#{stadiumBean.id}"/>
-<!--    <f:viewParam name="id" value="#{voteBean.id}"/>-->
-<!--    <f:viewAction action="#{voteBean.find}"/>-->
-    <f:viewAction action="#{stadiumBean.find}"/>
-<!--    <f:viewParam name="stadiumId" value="#{paramValues.get('stadiumId')}"/>-->
-<!--    <f:viewParam name="name" value="#{paramValues.get('userName')}"/>-->
+    <f:viewParam name="stadiumId"/>
 </f:metadata>
     <ui:define name="content">
         <h:form>
-<!--            <p>-->
-<!--                <h:outputLabel value="id"/>-->
-<!--                <h:inputText value="#{voteBean.vote.id}"/>-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                <h:outputLabel value="Stadium"/>-->
-<!--                <h:inputText readonly="true" value="#{stadiumId}"/>-->
-<!--            </p>-->
-<!--            <p>-->
-<!--                <h:outputLabel value="User"/>-->
-<!--                <h:inputText value="#{currentUser.user.id}"/>-->
-<!--            </p>-->
             <p>
-            <h:commandButton value="Vote" action="#{voteBean.save(Contxt, currentUser.user.loginName)}" style="color: #5aff2c"/>
-<!--            <h:commandButton value="Delete" action="#{voteBean.delete}" style="navbutton_background_color: #dd172e" rendered="#{not empty countryBean.country.id}" />-->
+            <p:commandButton value="Vote" action="#{voteBean.save(stadiumId, currentUser.user.loginName)}" style="color: #dd172e" />
             </p>
-
         </h:form>
-
     </ui:define>
 </ui:composition>
 
