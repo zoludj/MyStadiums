@@ -27,7 +27,6 @@ public class VoteBean implements Serializable {
 
     private VoteEntity vote;
     private CurrentUser currentUser;
-//    private StadiumEntity stadium;
     private long id;
 
     public void find() {
@@ -63,12 +62,6 @@ public class VoteBean implements Serializable {
         return "stadiums/app/plan.xhtml?faces-redirect=true";
     }
 
-
-//    public String delete() {
-//        if(country.getId()==null){
-//            return null;
-//        }
-//        countryDAO.delete(country);
 
     public long getId() {
         return id;
