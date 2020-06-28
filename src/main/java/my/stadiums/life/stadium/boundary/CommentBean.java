@@ -1,12 +1,19 @@
 package my.stadiums.life.stadium.boundary;
 
+import my.stadiums.life.auth.boundary.CurrentUser;
+import my.stadiums.life.auth.control.UserDAO;
+import my.stadiums.life.auth.model.UserEntity;
 import my.stadiums.life.stadium.control.CommentDAO;
+import my.stadiums.life.stadium.control.StadiumDAO;
 import my.stadiums.life.stadium.model.CommentsEntity;
+import my.stadiums.life.stadium.model.StadiumEntity;
+import my.stadiums.life.stadium.model.VoteEntity;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Optional;
 
 
 @Named
@@ -14,17 +21,28 @@ import java.io.Serializable;
 public class CommentBean implements Serializable {
     @Inject
     private CommentDAO commentDAO;
-    private CommentsEntity comment;
-    private long id;
+    @Inject
+    private StadiumDAO stadiumDAO;
+    @Inject
+    private UserDAO userDAO;
     private String value;
+    private CommentsEntity comment;
+    private CurrentUser currentUser;
+    private long id;
 
-    public void save(){
+    public String save(String stadiumId, String userId) {
         comment = new CommentsEntity();
-        if(comment.getId()==null){
+        StadiumEntity stadium = stadiumDAO.getStadiumById(Long.parseLong(stadiumId));
+        Optional<UserEntity> user = userDAO.findUser(userId);
+        comment.setStadium(stadium);
+        comment.setUser(user.get());
+        comment.setComment(value);
+        if (comment.getId() == null) {
             commentDAO.create(comment);
-        }else{
-            comment =commentDAO.update(comment);
+        } else {
+            comment = commentDAO.update(comment);
         }
+        return "/app/stadium.xhtml?faces-redirect=true";
     }
 
     public void find() {
@@ -33,6 +51,31 @@ public class CommentBean implements Serializable {
         } else {
             comment = commentDAO.getCommentById(id);
         }
+
+    }
+
+    public CommentDAO getCommentDAO() {
+        return commentDAO;
+    }
+
+    public void setCommentDAO(CommentDAO commentDAO) {
+        this.commentDAO = commentDAO;
+    }
+
+    public CommentsEntity getComment() {
+        return comment;
+    }
+
+    public void setComment(CommentsEntity comment) {
+        this.comment = comment;
+    }
+
+    public CurrentUser getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(CurrentUser currentUser) {
+        this.currentUser = currentUser;
     }
 
     public long getId() {
@@ -43,10 +86,6 @@ public class CommentBean implements Serializable {
         this.id = id;
     }
 
-    public CommentsEntity getComment() {
-        return comment;
-    }
-
     public String getValue() {
         return value;
     }
@@ -55,3 +94,5 @@ public class CommentBean implements Serializable {
         this.value = value;
     }
 }
+
+

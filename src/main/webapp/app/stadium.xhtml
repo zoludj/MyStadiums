@@ -41,7 +41,8 @@
                 <f:facet name="header">comments</f:facet>
 
                 <h:outputLink value="comment.xhtml">
-                    <h:commandButton value="Send comment" action="#{commentBean.save}"/>
+                    <f:param name="stadiumId" value="#{s.id}"/>
+                    <h:commandButton value="Send comment"/>
                 </h:outputLink>
          </h:column>
 

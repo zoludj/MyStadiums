@@ -5,34 +5,23 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/templates/main.xhtml">
 
-<f:metadata>
-    <f:viewParam name="id" value="#{commentBean.id}"/>
-    <f:viewAction action="#{commentBean.find}"/>
-</f:metadata>
-<ui:define name="content">
-<h:form>
-    <p>
-        <p:outputLabel value="user_id"/>
-        <p:inputText readonly="true" value="#{commentBean.comment.user.id}"/>
-    </p>
-
-    <p>
-        <p:outputLabel value="stadium_id"/>
-        <p:inputText readonly="true"  value="#{commentBean.comment.stadium.id}"/>
-    </p>
-    <p>
-        <p:outputLabel value="write comment"/>
-        <p:inputTextarea  value="#{commentBean.comment.id}"/>
-    </p>
-    <p>
-        <p:commandButton value="Publish" action="#{commentBean.save}"/>
-    </p>
-
-</h:form>
-</ui:define>
+    <f:metadata>
+        <f:viewParam name="stadiumId"/>
+    </f:metadata>
+    <ui:define name="content">
+        <h:form>
+            <p>
+                <p:outputLabel value="write comment"/>
+                <p:inputTextarea value="#{commentBean.value}"/>
+            </p>
+            <p>
+                <p:commandButton value="Publish" action="#{commentBean.save(stadiumId, currentUser.user.loginName)}"/>
+            </p>
+        </h:form>
+    </ui:define>
 </ui:composition>
 
 </html>

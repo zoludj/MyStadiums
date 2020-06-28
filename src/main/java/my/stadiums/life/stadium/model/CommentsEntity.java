@@ -5,6 +5,7 @@ import my.stadiums.life.auth.model.UserEntity;
 import javax.inject.Inject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
@@ -47,5 +48,10 @@ public class CommentsEntity implements Serializable {
 
     public void setUser(UserEntity user) {
         this.user = user;
+
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

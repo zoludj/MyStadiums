@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -8,13 +6,13 @@
 
 <ui:composition template="/templates/main.xhtml">
 
-<f:metadata>
-    <f:viewParam name="stadiumId"/>
-</f:metadata>
+    <f:metadata>
+        <f:viewParam name="stadiumId"/>
+    </f:metadata>
     <ui:define name="content">
         <h:form>
             <p>
-            <p:commandButton value="Vote" action="#{voteBean.save(stadiumId, currentUser.user.loginName)}" style="color: #dd172e" />
+                <p:commandButton value="Vote" action="#{voteBean.save(stadiumId, currentUser.user.loginName)}" style="color: #dd172e"/>
             </p>
         </h:form>
     </ui:define>
