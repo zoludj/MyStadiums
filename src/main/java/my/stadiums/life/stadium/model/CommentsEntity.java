@@ -1,29 +1,29 @@
 package my.stadiums.life.stadium.model;
 
 import my.stadiums.life.auth.model.UserEntity;
-
-import javax.inject.Inject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import java.io.Serializable;
-import java.util.List;
+
 
 @Entity(name = "Comment")
-@Table (name = "comments")
+@Table(name = "comments")
 public class CommentsEntity implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column (name = "comment")
+    @Column(name = "comment")
     private String comment;
+
     @NotNull
-    @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn (name = "stadium_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "stadium_id", nullable = false)
     private StadiumEntity stadium;
     @NotNull
-    @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn (name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
     public Long getId() {
@@ -53,5 +53,9 @@ public class CommentsEntity implements Serializable {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public String getComment() {
+        return comment;
     }
 }
