@@ -8,7 +8,6 @@
 
 
         <h:dataTable value="#{cityListBean.cities}" var="c">
-
             <h:column>
                 <f:facet name="header"><i class="pi pi-info">id</i></f:facet>
                 <h:outputLink value="city.xthml">
@@ -31,7 +30,8 @@
 
         </h:dataTable>
 
-        <h:outputLink value="city.xhtml"><i class="pi pi-star" style="margin-right:10px; color:darkgreen">New Develop</i></h:outputLink>
+        <h:outputLink value="city.xhtml"><i class="pi pi-star"
+                                            style="margin-right:10px; color:darkgreen">New Develop</i></h:outputLink>
     </ui:define>
 </ui:composition>
 
