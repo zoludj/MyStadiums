@@ -12,6 +12,8 @@ import my.stadiums.life.stadium.model.VoteEntity;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Optional;
 
@@ -27,15 +29,15 @@ public class CommentBean implements Serializable {
     private UserDAO userDAO;
     private String value;
     private CommentsEntity comment;
+    @Inject
     private CurrentUser currentUser;
     private long id;
 
-    public String save(String stadiumId, String userId) {
+    public String save(String stadiumId) {
         comment = new CommentsEntity();
         StadiumEntity stadium = stadiumDAO.getStadiumById(Long.parseLong(stadiumId));
-        Optional<UserEntity> user = userDAO.findUser(userId);
         comment.setStadium(stadium);
-        comment.setUser(user.get());
+        comment.setUser(currentUser.getUser());
         comment.setComment(value);
         if (comment.getId() == null) {
             commentDAO.create(comment);

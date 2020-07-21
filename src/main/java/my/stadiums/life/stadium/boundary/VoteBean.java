@@ -22,10 +22,8 @@ public class VoteBean implements Serializable {
     private VoteDAO voteDAO;
     @Inject
     private StadiumDAO stadiumDAO;
-    @Inject
-    private UserDAO userDAO;
-
     private VoteEntity vote;
+    @Inject
     private CurrentUser currentUser;
     private long id;
 
@@ -37,12 +35,11 @@ public class VoteBean implements Serializable {
         }
     }
 
-    public String save(String stadiumId, String userName) {
+    public String save(String stadiumId) {
         vote = new VoteEntity();
         StadiumEntity stadium = stadiumDAO.getStadiumById(Long.parseLong(stadiumId));
-        Optional<UserEntity> user = userDAO.findUser(userName);
         vote.setStadium(stadium);
-        vote.setUser(user.get());
+        vote.setUser(currentUser.getUser());
         if (vote.getId() == null) {
             voteDAO.create(vote);
         } else {
